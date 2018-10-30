@@ -1,0 +1,34 @@
+{
+    "name": "nguyenanhung/30-seconds-of-php-code",
+    "description": "A curated collection of useful PHP snippets that you can understand in 30 seconds or less.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sohel Amin",
+            "email": "sohelamincse@gmail.com"
+        },
+        {
+            "name": "Nguyen An Hung",
+            "email": "dev@nguyenanhung.com",
+            "homepage": "https://nguyenanhung.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.0",
+        "symfony/polyfill-mbstring": "^1.9"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.5|^6.5",
+        "symfony/console": "^3.4|^4.1"
+    },
+    "autoload": {
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit",
+        "build": "php scripts/build.php"
+    }
+}
