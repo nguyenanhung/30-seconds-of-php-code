@@ -1,20 +1,70 @@
 <?php
-
+/**
+ * Function all
+ *
+ * Returns true if the provided function returns true for all elements of an array, false otherwise.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:02
+ *
+ * @param $items
+ * @param $func
+ *
+ * @return bool
+ */
 function all($items, $func)
 {
     return count(array_filter($items, $func)) === count($items);
 }
 
+/**
+ * Function any
+ *
+ * Returns true if the provided function returns true for at least one element of an array, false otherwise.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:03
+ *
+ * @param $items
+ * @param $func
+ *
+ * @return bool
+ */
 function any($items, $func)
 {
     return count(array_filter($items, $func)) > 0;
 }
 
+/**
+ * Function chunk
+ *
+ * Chunks an array into smaller arrays of a specified size.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:03
+ *
+ * @param $items
+ * @param $size
+ *
+ * @return array
+ */
 function chunk($items, $size)
 {
     return array_chunk($items, $size);
 }
 
+/**
+ * Function flatten
+ *
+ * Flattens an array up to the one level depth.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:05
+ *
+ * @param $items
+ *
+ * @return array
+ */
 function flatten($items)
 {
     $result = [];
@@ -29,6 +79,18 @@ function flatten($items)
     return $result;
 }
 
+/**
+ * Function deepFlatten
+ *
+ * Deep flattens an array.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:03
+ *
+ * @param $items
+ *
+ * @return array
+ */
 function deepFlatten($items)
 {
     $result = [];
@@ -43,11 +105,37 @@ function deepFlatten($items)
     return $result;
 }
 
+/**
+ * Function drop
+ *
+ * Returns a new array with n elements removed from the left.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:03
+ *
+ * @param     $items
+ * @param int $n
+ *
+ * @return array
+ */
 function drop($items, $n = 1)
 {
     return array_slice($items, $n);
 }
 
+/**
+ * Function findLast
+ *
+ * Returns the last element for which the provided function returns a truthy value.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:04
+ *
+ * @param $items
+ * @param $func
+ *
+ * @return mixed
+ */
 function findLast($items, $func)
 {
     $filteredItems = array_filter($items, $func);
@@ -55,6 +143,19 @@ function findLast($items, $func)
     return array_pop($filteredItems);
 }
 
+/**
+ * Function findLastIndex
+ *
+ * Returns the index of the last element for which the provided function returns a truthy value.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:04
+ *
+ * @param $items
+ * @param $func
+ *
+ * @return mixed
+ */
 function findLastIndex($items, $func)
 {
     $keys = array_keys(array_filter($items, $func));
@@ -62,21 +163,70 @@ function findLastIndex($items, $func)
     return array_pop($keys);
 }
 
+/**
+ * Function head
+ *
+ * Returns the head of a list.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:05
+ *
+ * @param $items
+ *
+ * @return mixed
+ */
 function head($items)
 {
     return reset($items);
 }
 
+/**
+ * Function tail
+ *
+ * Returns all elements in an array except for the first one.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:07
+ *
+ * @param $items
+ *
+ * @return array
+ */
 function tail($items)
 {
     return count($items) > 1 ? array_slice($items, 1) : $items;
 }
 
+/**
+ * Function last
+ *
+ * Returns the last element in an array.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:06
+ *
+ * @param $items
+ *
+ * @return mixed
+ */
 function last($items)
 {
     return end($items);
 }
 
+/**
+ * Function pull
+ *
+ * Mutates the original array to filter out the values specified.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:06
+ *
+ * @param       $items
+ * @param mixed ...$params
+ *
+ * @return array
+ */
 function pull(&$items, ...$params)
 {
     $items = array_values(array_diff($items, $params));
@@ -84,6 +234,19 @@ function pull(&$items, ...$params)
     return $items;
 }
 
+/**
+ * Function pluck
+ *
+ * Retrieves all of the values for a given key:
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:06
+ *
+ * @param $items
+ * @param $key
+ *
+ * @return array
+ */
 function pluck($items, $key)
 {
     return array_map(function ($item) use ($key) {
@@ -91,6 +254,19 @@ function pluck($items, $key)
     }, $items);
 }
 
+/**
+ * Function reject
+ *
+ * Filters the collection using the given callback.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:06
+ *
+ * @param $items
+ * @param $func
+ *
+ * @return array
+ */
 function reject($items, $func)
 {
     return array_values(array_diff($items, array_filter($items, $func)));
@@ -103,21 +279,72 @@ function remove($items, $func)
     return array_diff_key($items, $filtered);
 }
 
+/**
+ * Function take
+ *
+ * Returns an array with n elements removed from the beginning.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:08
+ *
+ * @param     $items
+ * @param int $n
+ *
+ * @return array
+ */
 function take($items, $n = 1)
 {
     return array_slice($items, 0, $n);
 }
 
+/**
+ * Function without
+ *
+ * Filters out the elements of an array, that have one of the specified values.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:08
+ *
+ * @param       $items
+ * @param mixed ...$params
+ *
+ * @return array
+ */
 function without($items, ...$params)
 {
     return array_values(array_diff($items, $params));
 }
 
+/**
+ * Function hasDuplicates
+ *
+ * Checks a flat list for duplicate values. Returns true if duplicate values exists and false if values are all unique.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:05
+ *
+ * @param $items
+ *
+ * @return bool
+ */
 function hasDuplicates($items)
 {
     return count($items) > count(array_unique($items));
 }
 
+/**
+ * Function groupBy
+ *
+ * Groups the elements of an array based on the given function.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:05
+ *
+ * @param $items
+ * @param $func
+ *
+ * @return array
+ */
 function groupBy($items, $func)
 {
     $group = [];
@@ -135,11 +362,35 @@ function groupBy($items, $func)
     return $group;
 }
 
+/**
+ * Function average
+ *
+ * Returns the average of two or more numbers.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:09
+ *
+ * @param mixed ...$items
+ *
+ * @return float|int
+ */
 function average(...$items)
 {
     return count($items) === 0 ? 0 : array_sum($items) / count($items);
 }
 
+/**
+ * Function factorial
+ *
+ * Calculates the factorial of a number.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:10
+ *
+ * @param $n
+ *
+ * @return float|int
+ */
 function factorial($n)
 {
     if ($n <= 1) {
@@ -149,6 +400,18 @@ function factorial($n)
     return $n * factorial($n - 1);
 }
 
+/**
+ * Function fibonacci
+ *
+ * Generates an array, containing the Fibonacci sequence, up until the nth term.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:10
+ *
+ * @param $n
+ *
+ * @return array
+ */
 function fibonacci($n)
 {
     $sequence = [0, 1];
@@ -160,6 +423,18 @@ function fibonacci($n)
     return $sequence;
 }
 
+/**
+ * Function gcd
+ *
+ * Calculates the greatest common divisor between two or more numbers.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:11
+ *
+ * @param mixed ...$numbers
+ *
+ * @return float|int|mixed
+ */
 function gcd(...$numbers)
 {
     if (count($numbers) > 2) {
@@ -171,6 +446,18 @@ function gcd(...$numbers)
     return $r === 0 ? abs($numbers[1]) : gcd($numbers[1], $r);
 }
 
+/**
+ * Function lcm
+ *
+ * Returns the least common multiple of two or more numbers.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:11
+ *
+ * @param mixed ...$numbers
+ *
+ * @return float|int|mixed
+ */
 function lcm(...$numbers)
 {
     $ans = $numbers[0];
@@ -181,6 +468,18 @@ function lcm(...$numbers)
     return $ans;
 }
 
+/**
+ * Function isPrime
+ *
+ * Checks if the provided integer is a prime number.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:11
+ *
+ * @param $number
+ *
+ * @return bool
+ */
 function isPrime($number)
 {
     $boundary = floor(sqrt($number));
@@ -193,11 +492,35 @@ function isPrime($number)
     return $number >= 2;
 }
 
+/**
+ * Function isEven
+ *
+ * Returns true if the given number is even, false otherwise.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:11
+ *
+ * @param $number
+ *
+ * @return bool
+ */
 function isEven($number)
 {
     return ($number % 2) === 0;
 }
 
+/**
+ * Function median
+ *
+ * Returns the median of an array of numbers.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:11
+ *
+ * @param $numbers
+ *
+ * @return float|int
+ */
 function median($numbers)
 {
     sort($numbers);
@@ -207,6 +530,19 @@ function median($numbers)
     return ($totalNumbers % 2) === 0 ? ($numbers[$mid - 1] + $numbers[$mid]) / 2 : $numbers[$mid];
 }
 
+/**
+ * Function variadicFunction
+ *
+ * Variadic functions allows you to capture a variable number of arguments to a function.
+ * The function accepts any number of variables to execute the code. It uses a for loop to iterate over the parameters.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:17
+ *
+ * @param $operands
+ *
+ * @return int
+ */
 function variadicFunction($operands)
 {
     $sum = 0;
@@ -217,46 +553,161 @@ function variadicFunction($operands)
     return $sum;
 }
 
+/**
+ * Function endsWith
+ *
+ * Check if a string is ends with a given substring.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:13
+ *
+ * @param $haystack
+ * @param $needle
+ *
+ * @return bool
+ */
 function endsWith($haystack, $needle)
 {
     return strrpos($haystack, $needle) === (strlen($haystack) - strlen($needle));
 }
 
+/**
+ * Function startsWith
+ *
+ * Check if a string starts with a given substring.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:14
+ *
+ * @param $haystack
+ * @param $needle
+ *
+ * @return bool
+ */
 function startsWith($haystack, $needle)
 {
     return strpos($haystack, $needle) === 0;
 }
 
+/**
+ * Function isContains
+ *
+ * Check if a word / substring exist in a given string input. Using strpos to find the position of the first occurrence
+ * of a substring in a string. Returns either true or false
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:16
+ *
+ * @param $string
+ * @param $needle
+ *
+ * @return bool
+ */
 function isContains($string, $needle)
 {
     return strpos($string, $needle) !== FALSE;
 }
 
+/**
+ * Function isLowerCase
+ *
+ * Returns true if the given string is lower case, false otherwise.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:14
+ *
+ * @param $string
+ *
+ * @return bool
+ */
 function isLowerCase($string)
 {
     return $string === strtolower($string);
 }
 
+/**
+ * Function isUpperCase
+ *
+ * Returns true if the given string is upper case, false otherwise.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:14
+ *
+ * @param $string
+ *
+ * @return bool
+ */
 function isUpperCase($string)
 {
     return $string === strtoupper($string);
 }
 
+/**
+ * Function isAnagram
+ *
+ * Compare two strings and returns true if both strings are anagram, false otherwise.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:14
+ *
+ * @param $string1
+ * @param $string2
+ *
+ * @return bool
+ */
 function isAnagram($string1, $string2)
 {
     return count_chars($string1, 1) === count_chars($string2, 1);
 }
 
+/**
+ * Function palindrome
+ *
+ * Returns true if the given string is a palindrome, false otherwise.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:14
+ *
+ * @param $string
+ *
+ * @return bool
+ */
 function palindrome($string)
 {
     return strrev($string) === $string;
 }
 
+/**
+ * Function firstStringBetween
+ *
+ * Returns the first string there is between the strings from the parameter start and end.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:13
+ *
+ * @param $haystack
+ * @param $start
+ * @param $end
+ *
+ * @return string
+ */
 function firstStringBetween($haystack, $start, $end)
 {
     return trim(strstr(strstr($haystack, $start), $end, TRUE), $start . $end);
 }
 
+/**
+ * Function compose
+ *
+ * Return a new function that composes multiple functions into a single callable.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:16
+ *
+ * @param mixed ...$functions
+ *
+ * @return mixed
+ */
 function compose(...$functions)
 {
     return array_reduce(
@@ -272,6 +723,18 @@ function compose(...$functions)
     );
 }
 
+/**
+ * Function maxN
+ *
+ * Returns the n maximum elements from the provided array.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:12
+ *
+ * @param $numbers
+ *
+ * @return int
+ */
 function maxN($numbers)
 {
     $maxValue      = max($numbers);
@@ -282,6 +745,18 @@ function maxN($numbers)
     return count($maxValueArray);
 }
 
+/**
+ * Function minN
+ *
+ * Returns the n minimum elements from the provided array.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:12
+ *
+ * @param $numbers
+ *
+ * @return int
+ */
 function minN($numbers)
 {
     $minValue      = min($numbers);
@@ -292,6 +767,19 @@ function minN($numbers)
     return count($minValueArray);
 }
 
+/**
+ * Function countVowels
+ *
+ * Returns number of vowels in provided string.
+ * Use a regular expression to count the number of vowels (A, E, I, O, U) in a string.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:15
+ *
+ * @param $string
+ *
+ * @return int
+ */
 function countVowels($string)
 {
     preg_match_all('/[aeiou]/i', $string, $matches);
@@ -299,21 +787,83 @@ function countVowels($string)
     return count($matches[0]);
 }
 
+/**
+ * Function decapitalize
+ *
+ * Decapitalizes the first letter of a string.
+ * Decapitalizes the first letter of the string and then adds it with rest of the string. Omit the upperRest parameter
+ * to keep the rest of the string intact, or set it to true to convert to uppercase.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:15
+ *
+ * @param      $string
+ * @param bool $upperRest
+ *
+ * @return string
+ */
 function decapitalize($string, $upperRest = FALSE)
 {
     return lcfirst($upperRest ? strtoupper($string) : $string);
 }
 
+/**
+ * Function approximatelyEqual
+ *
+ * Checks if two numbers are approximately equal to each other.
+ *
+ * Use abs() to compare the absolute difference of the two values to epsilon. Omit the third parameter, epsilon, to use
+ * a default value of 0.001.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:12
+ *
+ * @param       $number1
+ * @param       $number2
+ * @param float $epsilon
+ *
+ * @return bool
+ */
 function approximatelyEqual($number1, $number2, $epsilon = 0.001)
 {
     return abs($number1 - $number2) < $epsilon;
 }
 
+/**
+ * Function clampNumber
+ *
+ * Clamps num within the inclusive range specified by the boundary values a and b.
+ *
+ * If num falls within the range, return num. Otherwise, return the nearest number in the range.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:13
+ *
+ * @param $num
+ * @param $a
+ * @param $b
+ *
+ * @return mixed
+ */
 function clampNumber($num, $a, $b)
 {
     return max(min($num, max($a, $b)), min($a, $b));
 }
 
+/**
+ * Function orderBy
+ *
+ * Sorts a collection of arrays or objects by key.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:09
+ *
+ * @param $items
+ * @param $attr
+ * @param $order
+ *
+ * @return array
+ */
 function orderBy($items, $attr, $order)
 {
     $sortedItems = [];
@@ -330,6 +880,18 @@ function orderBy($items, $attr, $order)
     return array_values($sortedItems);
 }
 
+/**
+ * Function memoize
+ *
+ * Memoization of a function results in memory.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:16
+ *
+ * @param $func
+ *
+ * @return \Closure
+ */
 function memoize($func)
 {
     return function () use ($func) {
@@ -348,6 +910,18 @@ function memoize($func)
     };
 }
 
+/**
+ * Function curry
+ *
+ * Curries a function to take arguments in multiple calls.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:16
+ *
+ * @param $function
+ *
+ * @return \Closure
+ */
 function curry($function)
 {
     $accumulator = function ($arguments) use ($function, &$accumulator) {
@@ -367,6 +941,18 @@ function curry($function)
     return $accumulator([]);
 }
 
+/**
+ * Function once
+ *
+ * Call a function only once.
+ *
+ * @author: 713uk13m <dev@nguyenanhung.com>
+ * @time  : 10/30/18 11:17
+ *
+ * @param $function
+ *
+ * @return \Closure
+ */
 function once($function)
 {
     return function (...$args) use ($function) {
