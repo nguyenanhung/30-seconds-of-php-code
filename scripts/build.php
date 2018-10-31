@@ -12,20 +12,20 @@ Note: This project is inspired by [30 Seconds of Code](https://github.com/Chalar
 ## Table of Contents
 ';
 
-$tags = json_decode(file_get_contents($projectDir . '/data/tags.json'));
+$tags     = json_decode(file_get_contents($projectDir . '/data/tags.json'));
 $database = json_decode(file_get_contents($projectDir . '/data/database.json'));
 
 $tableOfContents = '';
-$snippets = '';
+$snippets        = '';
 foreach ($tags as $tag) {
-$tableOfContents .= "
+    $tableOfContents .= "
 ### {$tag->icon} {$tag->name}
 
 <details>
 <summary>View contents</summary>
 
 ";
-$snippets .= "
+    $snippets        .= "
 ---
  ## {$tag->icon} {$tag->name}
 
@@ -41,7 +41,7 @@ $snippets .= "
         }
     }
 
-$tableOfContents .= '
+    $tableOfContents .= '
 </details>
 ';
 }

@@ -16,6 +16,7 @@
     ],
     "require": {
         "php": ">=5.6.0",
+        "ext-json": "*",
         "symfony/polyfill-mbstring": "^1.9"
     },
     "require-dev": {
@@ -23,6 +24,9 @@
         "symfony/console": "^3.4|^4.1"
     },
     "autoload": {
+        "psr-4": {
+            "nguyenanhung\\Helper\\Smile\\": "src/"
+        },
         "files": [
             "helpers/30s-of-php-code.php",
             "helpers/ci_text_helper.php",
