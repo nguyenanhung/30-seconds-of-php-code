@@ -24,7 +24,7 @@
     },
     "autoload": {
         "files": [
-            "src/helpers.php"
+            "src/30s-of-php-code.php"
         ]
     },
     "scripts": {
