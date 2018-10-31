@@ -24,8 +24,10 @@
     },
     "autoload": {
         "files": [
-            "src/30s-of-php-code.php",
-            "src/ci_string_helper.php"
+            "helpers/30s-of-php-code.php",
+            "helpers/ci_text_helper.php",
+            "helpers/ci_string_helper.php",
+            "helpers/ci_xml_helper.php"
         ]
     },
     "scripts": {

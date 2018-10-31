@@ -6,7 +6,7 @@
 - Install the dependencies `composer install --dev`
 - Generate your snippet using `php scripts/generate snippet` command.
 - Update your snippet file located at snippets directory. eg. `snippet/mySnippet.md`
-- Add the function to `src/`
+- Add the function to `helpers/`
 - Write the test case.
 - Test the code using `composer test`
 - Make the pull request.
