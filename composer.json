@@ -24,7 +24,8 @@
     },
     "autoload": {
         "files": [
-            "src/30s-of-php-code.php"
+            "src/30s-of-php-code.php",
+            "src/ci_string_helper.php"
         ]
     },
     "scripts": {
