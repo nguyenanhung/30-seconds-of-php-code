@@ -113,6 +113,8 @@ if (!function_exists('character_limiter')) {
                 return (mb_strlen($out) === mb_strlen($str)) ? $out : $out . $end_char;
             }
         }
+
+        return $str;
     }
 }
 
