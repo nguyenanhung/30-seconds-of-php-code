@@ -18,8 +18,8 @@ namespace nguyenanhung\Classes\Helper\Interfaces;
  */
 interface ProjectInterface
 {
-    const VERSION       = '1.0.2.2';
-    const LAST_MODIFIED = '2018-11-29';
+    const VERSION       = '1.0.2.3';
+    const LAST_MODIFIED = '2018-12-09';
     const AUTHOR_NAME   = 'Hung Nguyen';
     const AUTHOR_EMAIL  = 'dev@nguyenanhung.com';
     const PROJECT_NAME  = '30s of PHP Code';
