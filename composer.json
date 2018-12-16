@@ -36,7 +36,8 @@
             "helpers/ci_text_helper.php",
             "helpers/ci_string_helper.php",
             "helpers/ci_xml_helper.php",
-            "helpers/escape_helper.php"
+            "helpers/escape_helper.php",
+            "helpers/json_helper.php"
         ]
     },
     "scripts": {
