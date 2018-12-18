@@ -7,19 +7,19 @@
  * Time: 09:07
  */
 
-namespace nguyenanhung\Classes\Helper\Interfaces;
+namespace nguyenanhung\Classes\Helper;
 
 /**
  * Interface ProjectInterface
  *
- * @package   nguyenanhung\Classes\Helper\Interfaces
+ * @package   nguyenanhung\Classes\Helper
  * @author    713uk13m <dev@nguyenanhung.com>
  * @copyright 713uk13m <dev@nguyenanhung.com>
  */
 interface ProjectInterface
 {
-    const VERSION       = '1.0.2.4';
-    const LAST_MODIFIED = '2018-12-17';
+    const VERSION       = '1.0.2.5';
+    const LAST_MODIFIED = '2018-12-18';
     const AUTHOR_NAME   = 'Hung Nguyen';
     const AUTHOR_EMAIL  = 'dev@nguyenanhung.com';
     const PROJECT_NAME  = '30s of PHP Code';

@@ -9,8 +9,6 @@
 
 namespace nguyenanhung\Classes\Helper;
 
-use nguyenanhung\Classes\Helper\Interfaces\ProjectInterface;
-
 /**
  * Class AppleLink
  *

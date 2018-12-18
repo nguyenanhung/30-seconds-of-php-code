@@ -7,12 +7,12 @@
  * Time: 09:48
  */
 
-namespace nguyenanhung\Classes\Helper\Interfaces;
+namespace nguyenanhung\Classes\Helper;
 
 /**
  * Interface DeviceDetectLink
  *
- * @package   nguyenanhung\Classes\Helper\Interfaces
+ * @package   nguyenanhung\Classes\Helper
  * @author    713uk13m <dev@nguyenanhung.com>
  * @copyright 713uk13m <dev@nguyenanhung.com>
  */

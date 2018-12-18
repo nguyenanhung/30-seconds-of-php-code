@@ -10,8 +10,6 @@
 namespace nguyenanhung\Classes\Helper;
 
 use Detection\MobileDetect;
-use nguyenanhung\Classes\Helper\Interfaces\ProjectInterface;
-use nguyenanhung\Classes\Helper\Interfaces\DeviceDetectLinkInterface;
 
 /**
  * Class DeviceDetectLink
