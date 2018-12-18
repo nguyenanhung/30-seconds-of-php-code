@@ -18,7 +18,7 @@ namespace nguyenanhung\Classes\Helper;
  */
 interface ProjectInterface
 {
-    const VERSION       = '1.0.2.5';
+    const VERSION       = '1.0.2.6';
     const LAST_MODIFIED = '2018-12-18';
     const AUTHOR_NAME   = 'Hung Nguyen';
     const AUTHOR_EMAIL  = 'dev@nguyenanhung.com';

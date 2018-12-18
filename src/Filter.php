@@ -48,4 +48,60 @@ class Filter implements FilterInterface
 
         return TRUE;
     }
+
+    /**
+     * Function filterDate
+     *
+     * @author: 713uk13m <dev@nguyenanhung.com>
+     * @time  : 2018-12-18 23:39
+     *
+     * @param string $inputDate
+     *
+     * @return array
+     */
+    public static function filterDate($inputDate = '')
+    {
+        if ($inputDate != '') {
+            // Get date
+            if ($inputDate == 'back_1_day') {
+                try {
+                    $dateTime = new \DateTime("-1 day");
+                    $result   = [
+                        'date'       => $dateTime->format('Y-m-d'),
+                        'day'        => $dateTime->format('Ymd'),
+                        'month'      => $dateTime->format('Y-m'),
+                        'monthTable' => $dateTime->format('Y_m')
+                    ];
+                }
+                catch (\Exception $e) {
+                    if (function_exists('log_message')) {
+                        $message = 'Error Code: ' . $e->getCode() . ' - File: ' . $e->getFile() . ' - Line: ' . $e->getLine() . ' - Message: ' . $e->getMessage();
+                        log_message('error', $message);
+                    }
+                    $result = [
+                        'date'       => date('Y-m-d', strtotime($inputDate)),
+                        'day'        => date('Ymd', strtotime($inputDate)),
+                        'month'      => date('Y-m', strtotime($inputDate)),
+                        'monthTable' => date('Y_m', strtotime($inputDate))
+                    ];
+                }
+            } else {
+                $result = [
+                    'date'       => date('Y-m-d', strtotime($inputDate)),
+                    'day'        => date('Ymd', strtotime($inputDate)),
+                    'month'      => date('Y-m', strtotime($inputDate)),
+                    'monthTable' => date('Y_m', strtotime($inputDate))
+                ];
+            }
+        } else {
+            $result = [
+                'date'       => date('Y-m-d'),
+                'day'        => date('Ymd'),
+                'month'      => date('Y-m'),
+                'monthTable' => date('Y_m')
+            ];
+        }
+
+        return $result;
+    }
 }

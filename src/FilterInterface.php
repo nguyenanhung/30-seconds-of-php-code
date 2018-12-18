@@ -30,4 +30,16 @@ interface FilterInterface
      * @return bool
      */
     public static function filterInputDataIsArray($inputData = [], $requireData = []);
+
+    /**
+     * Function filterDate
+     *
+     * @author: 713uk13m <dev@nguyenanhung.com>
+     * @time  : 2018-12-18 23:39
+     *
+     * @param string $inputDate
+     *
+     * @return array
+     */
+    public static function filterDate($inputDate = '');
 }
