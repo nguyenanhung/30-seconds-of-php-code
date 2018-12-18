@@ -23,7 +23,6 @@
         "zendframework/zend-escaper": "^2.6"
     },
     "require-dev": {
-        "phpunit/phpunit": ">=4.8 < 6.0",
         "kint-php/kint": "^3.0",
         "symfony/console": "^3.4"
     },
@@ -39,9 +38,5 @@
             "helpers/escape_helper.php",
             "helpers/json_helper.php"
         ]
-    },
-    "scripts": {
-        "test": "./vendor/bin/phpunit",
-        "build": "php scripts/build.php"
     }
 }
