@@ -79,10 +79,10 @@ class Filter implements FilterInterface
                         log_message('error', $message);
                     }
                     $result = [
-                        'date'       => date('Y-m-d', strtotime($inputDate)),
-                        'day'        => date('Ymd', strtotime($inputDate)),
-                        'month'      => date('Y-m', strtotime($inputDate)),
-                        'monthTable' => date('Y_m', strtotime($inputDate))
+                        'date'       => date('Y-m-d', strtotime("-1 day", strtotime($inputDate))),
+                        'day'        => date('Ymd', strtotime("-1 day", strtotime($inputDate))),
+                        'month'      => date('Y-m', strtotime("-1 day", strtotime($inputDate))),
+                        'monthTable' => date('Y_m', strtotime("-1 day", strtotime($inputDate)))
                     ];
                 }
             } else {
