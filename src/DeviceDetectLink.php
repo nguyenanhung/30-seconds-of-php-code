@@ -18,7 +18,7 @@ use Detection\MobileDetect;
  * @author    713uk13m <dev@nguyenanhung.com>
  * @copyright 713uk13m <dev@nguyenanhung.com>
  */
-class DeviceDetectLink implements ProjectInterface, DeviceDetectLinkInterface
+class DeviceDetectLink implements ProjectInterface
 {
     /** @var array Mảng dữ liệu các link device */
     protected $data;

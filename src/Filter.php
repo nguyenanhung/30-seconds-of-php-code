@@ -16,7 +16,7 @@ namespace nguyenanhung\Classes\Helper;
  * @author    713uk13m <dev@nguyenanhung.com>
  * @copyright 713uk13m <dev@nguyenanhung.com>
  */
-class Filter implements FilterInterface
+class Filter
 {
     /**
      * Function filterInputDataIsArray

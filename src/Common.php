@@ -12,35 +12,13 @@ namespace nguyenanhung\Classes\Helper;
 /**
  * Class Common
  *
- * @package nguyenanhung\Classes\Helper
+ * @package   nguyenanhung\Classes\Helper
  * @author    713uk13m <dev@nguyenanhung.com>
  * @copyright 713uk13m <dev@nguyenanhung.com>
  */
 class Common
 {
     const HTML_ESCAPE_CHARSET = 'UTF-8';
-
-    /**
-     * Common constructor.
-     */
-    public function __construct()
-    {
-    }
-
-    /**
-     * Function dump
-     *
-     * @author: 713uk13m <dev@nguyenanhung.com>
-     * @time  : 9/29/18 10:55
-     *
-     * @param string $str
-     */
-    public function dump($str = '')
-    {
-        echo "<pre>";
-        var_dump($str);
-        echo "</pre>";
-    }
 
     /**
      * Function isEmpty
@@ -324,7 +302,7 @@ class Common
                 $file = new File();
                 $file->mkdir($pathname, $mode);
                 // Gen file Index.html + .htaccess
-                $file_content_index_html = "<!DOCTYPE html>\n<html>\n<head>\n<title>403 Forbidden</title>\n</head>\n<body>\n<p>Directory access is forbidden.</p>\n</body>\n</html>";
+                $file_content_index_html = "<!DOCTYPE html>\n<html lang='vi'>\n<head>\n<title>403 Forbidden</title>\n</head>\n<body>\n<p>Directory access is forbidden.</p>\n</body>\n</html>";
                 $file_content_htaccess   = "RewriteEngine On\nOptions -Indexes\nAddType text/plain php3 php4 php5 php cgi asp aspx html css js";
                 $file->appendToFile($pathname . DIRECTORY_SEPARATOR . 'index.html', $file_content_index_html);
                 $file->appendToFile($pathname . DIRECTORY_SEPARATOR . '.htaccess', $file_content_htaccess);
@@ -399,6 +377,7 @@ class Common
 
         return $html;
     }
+
     /************************** HTML + XML HELPER **************************/
     /**
      * Function meta
@@ -855,6 +834,7 @@ class Common
 
         return $str;
     }
+
     /************************** TEXT HELPER **************************/
     /**
      * Word Limiter
@@ -1264,6 +1244,7 @@ class Common
 
         return $str;
     }
+
     /************************** EMAIL HELPER **************************/
     /**
      * Validate email address

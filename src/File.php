@@ -15,7 +15,9 @@ use TheSeer\DirectoryScanner\DirectoryScanner;
 /**
  * Class File
  *
- * @package nguyenanhung\Classes\Helper
+ * @package   nguyenanhung\Classes\Helper
+ * @author    713uk13m <dev@nguyenanhung.com>
+ * @copyright 713uk13m <dev@nguyenanhung.com>
  */
 class File extends Filesystem
 {
