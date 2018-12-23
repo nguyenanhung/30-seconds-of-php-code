@@ -1344,7 +1344,6 @@ class Common
         $salt = mcrypt_create_iv(32, CRYPT_BLOWFISH);
         $salt = base64_encode($salt);
         $salt = str_replace('+', '.', $salt);
-
         return $salt;
     }
 }
