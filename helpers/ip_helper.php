@@ -8,16 +8,16 @@
  */
 if (!function_exists('getIPAddress')) {
     /**
-     * Function getRawIpAddress
+     * Function getIpAddress
      *
      * @author: 713uk13m <dev@nguyenanhung.com>
-     * @time  : 2018-12-25 10:32
+     * @time  : 2018-12-25 11:09
      *
      * @param bool $convertToInteger
      *
      * @return bool|int|string
      */
-    function getRawIpAddress($convertToInteger = FALSE)
+    function getIPAddress($convertToInteger = FALSE)
     {
         $ip_keys = [
             0 => 'HTTP_X_FORWARDED_FOR',
@@ -30,20 +30,21 @@ if (!function_exists('getIPAddress')) {
             7 => 'HTTP_IP',
             8 => 'REMOTE_ADDR'
         ];
-        $this->debug->debug(__FUNCTION__, 'ip_keys: ', $ip_keys);
         foreach ($ip_keys as $key) {
             if (array_key_exists($key, $_SERVER) === TRUE) {
                 foreach (explode(',', $_SERVER[$key]) as $ip) {
                     $ip = trim($ip);
-                    $this->debug->debug(__FUNCTION__, 'IP: ' . $ip);
                     if ($convertToInteger === TRUE) {
                         $result = ip2long($ip);
+
                         return $result;
                     }
+
                     return $ip;
                 }
             }
         }
+
         return FALSE;
     }
 }
