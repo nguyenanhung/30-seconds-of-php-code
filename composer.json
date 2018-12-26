@@ -15,7 +15,6 @@
         }
     ],
     "require": {
-        "ext-iconv": "*",
         "symfony/polyfill": "^1.9",
         "symfony/filesystem": "3.4.17",
         "jbzoo/data": "1.6.0",
